@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <link href="../static/style.css" th:href="@{/style.css}" rel="stylesheet"/>
+    <title>Customers</title>
+</head>
+<body>
+<div align="center" th:switch="${customers}">
+    <h2 th:case="null">No customers!</h2>
+    <div th:case="*">
+        <h2>Customers</h2>
+        <p><a href="/customer-create">Add Customer</a></p>
+        <table border="1" cellpadding="5">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>NAME</th>
+                <th>EMAIL</th>
+                <th>ADDRESS</th>
+                <th>ACTIONS</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="customer: ${customers}">
+                <td th:text="${customer.id}"></td>
+                <td th:text="${customer.name}"></td>
+                <td th:text="${customer.email}"></td>
+                <td th:text="${customer.address}"></td>
+                <td><a th:href="@{customer-update/{id}(id=${customer.id})}">Edit</a>
+                    &nbsp;&nbsp;
+                <a th:href="@{customer-delete/{id}(id=${customer.id})}">Delete</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>
+</body>
+</html>

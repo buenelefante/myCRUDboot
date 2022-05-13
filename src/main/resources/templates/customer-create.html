@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <link href="../static/style.css" th:href="@{/style.css}" rel="stylesheet"/>
+    <title>Add Customer</title>
+</head>
+<body>
+<div align="center">
+    <h2>Add Customer</h2>
+<form action="#" th:action="@{/customer-create}" th:object="${customer}" method="post">
+    <p><label for="name">NAME</label></p>
+    <p><input type="text" id="name" name="name" required></p>
+    <p><label for="email">E-MAIL</label></p>
+    <p><input type="text" id="email" name="email" required></p>
+    <p><label for="address">ADDRESS</label></p>
+    <p><input type="text" id="address" name="address" required></p>
+    <p>
+        <input type="submit" value="ADD">
+    </p>
+</form>
+</div>
+</body>
+</html>
